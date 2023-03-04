@@ -1,7 +1,9 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-
+import ecs100.*;
+//.* imports all
 public class Main
 {
     public static void main(String[] args)
@@ -26,17 +28,26 @@ public class Main
             return;
         }
 
-     //   List<Integer> ValidPrimes = new List<Integer>();
+        ArrayList<Integer> ValidPrimes = new ArrayList<Integer>();
+
 
         for (int x = 3; x < i; x++)
         {
-            int[] placeHolder = new int[0];
-            IsPrimeNumber(x,placeHolder);
+          if(  IsPrimeNumber(x,ValidPrimes))
+              ValidPrimes.add(x);
         }
+
+        System.out.println("done, printing all valid primes now");
+
+        for (i=0; i < ValidPrimes.size();i++)
+        {
+            System.out.println(ValidPrimes.get(i));
+        }
+        UI.println("TEST ECS100");
     }
 
 
-    public static boolean IsPrimeNumber(int in,int[] OtherPrimes)
+    public static boolean IsPrimeNumber(int in,ArrayList<Integer> primes)
     {
         //first check if input can be devided by 2
         if(isDevisable(in,2))
